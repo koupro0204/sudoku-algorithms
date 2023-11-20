@@ -11,11 +11,13 @@ class SudokuPuzzleGenerator(SudokuGenerator):
         if level == "easy":
             numbers_to_remove = 20
         elif level == "medium":
-            numbers_to_remove = 30
-        elif level == "hard":
             numbers_to_remove = 40
+        elif level == "hard":
+            numbers_to_remove = 63
+        elif level == "expert":
+            numbers_to_remove = 70
         else:  # expert
-            numbers_to_remove = 50
+            numbers_to_remove = 73
 
         attempts = numbers_to_remove
         while attempts > 0:
@@ -98,7 +100,10 @@ class SudokuSolver:
 
 # Example usage
 puzzle_generator = SudokuPuzzleGenerator()
-dificulty = ["easy", "medium", "hard", "expert"]
-puzzle = puzzle_generator.generate_puzzle("expert")  # Generate a medium difficulty puzzle
+dificulty = ["easy", "medium", "hard", "expert", "master"]
+selected_difficulty = dificulty[4]
+print(selected_difficulty)
+
+puzzle = puzzle_generator.generate_puzzle(selected_difficulty)  # Generate a medium difficulty puzzle
 print(puzzle)
 
